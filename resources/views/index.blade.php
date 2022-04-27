@@ -7,6 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" sizes="192x192" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
+    <!--Fuentes de Google-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Kalam:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
     <!--Librerías de iconos-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -106,7 +113,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
         <a href="index.html" class="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
-            <h2 class="m-0 text-primary">Solartec</h2>
+            <h2 class="m-0 text-primary">PUF</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -137,6 +144,7 @@
 
     <!-- Carousel Start -->
     <div class="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">
+        <h1 class="display-2 text-black animated slideInDown">Platos destacados</h1>
         <div class="owl-carousel header-carousel position-relative">
             <div class="owl-carousel-item position-relative" data-dot="<img src='{{ asset('images/dish-1.png') }}'>">
                 <img class="img-fluid" src="{{ asset('images/dish-1.png') }}" alt="">
@@ -145,13 +153,11 @@
                         <div class="row justify-content-start">
                             <div class="col-10 col-lg-8">
 
-                                <h1 class="display-2 text-white animated slideInDown">Pioneers Of Solar And Renewable
-                                    Energy</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-3">Vero elitr justo clita lorem. Ipsum dolor
                                     at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea
                                     elitr.</p>
-                                <a href="" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Read
-                                    More</a>
+                                <a href="" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Haz tu
+                                    pedido</a>
                             </div>
                         </div>
                     </div>
@@ -163,13 +169,11 @@
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-10 col-lg-8">
-                                <h1 class="display-2 text-white animated slideInDown">Pioneers Of Solar And Renewable
-                                    Energy</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-3">Vero elitr justo clita lorem. Ipsum dolor
                                     at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea
                                     elitr.</p>
-                                <a href="" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Read
-                                    More</a>
+                                <a href="" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Haz tu
+                                    pedido</a>
                             </div>
                         </div>
                     </div>
@@ -181,13 +185,11 @@
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-10 col-lg-8">
-                                <h1 class="display-2 text-white animated slideInDown">Pioneers Of Solar And Renewable
-                                    Energy</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-3">Vero elitr justo clita lorem. Ipsum dolor
                                     at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea
                                     elitr.</p>
-                                <a href="" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Read
-                                    More</a>
+                                <a href="" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Haz tu
+                                    pedido</a>
                             </div>
                         </div>
                     </div>
@@ -199,12 +201,13 @@
 
     <!-- About Start -->
     <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+        <h1 class="display-2 text-black animated slideInDown">Nuestros restaurantes</h1>
         <div class="container about px-lg-0">
             <div class="row g-0 mx-lg-0">
                 <div class="col-lg-6 ps-lg-0 wow fadeIn" data-wow-delay="0.1s" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="img/about.jpg"
-                            style="object-fit: cover;" alt="">
+                        <img class="position-absolute img-fluid w-100 h-100"
+                            src="{{ asset('images/restaurante-1.jpg') }}" style="object-fit: cover;" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
@@ -216,7 +219,7 @@
                         <p><i class="fa fa-check-circle text-primary me-3"></i>Diam dolor diam ipsum</p>
                         <p><i class="fa fa-check-circle text-primary me-3"></i>Aliqu diam amet diam et eos</p>
                         <p><i class="fa fa-check-circle text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
-                        <a href="" class="btn btn-primary rounded-pill py-3 px-5 mt-3">Explore More</a>
+                        <a href="" class="btn btn-primary rounded-pill py-3 px-5 mt-3">Ver carta</a>
                     </div>
                 </div>
             </div>
@@ -229,13 +232,12 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h6 class="text-primary">Our Services</h6>
-                <h1 class="mb-4">We Are Pioneers In The World Of Renewable Energy</h1>
+                <h1 class="text-primary">Especialidades del día</h1>
             </div>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item rounded overflow-hidden">
-                        <img class="img-fluid" src="img/img-600x400-1.jpg" alt="">
+                        <img class="img-fluid" src="{{ asset('images/menu-2.jpg') }}" alt="">
                         <div class="position-relative p-4 pt-0">
                             <div class="service-icon">
                                 <i class="fa fa-solar-panel fa-3x"></i>
@@ -248,7 +250,7 @@
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item rounded overflow-hidden">
-                        <img class="img-fluid" src="img/img-600x400-2.jpg" alt="">
+                        <img class="img-fluid" src="{{ asset('images/menu-3.jpg') }}" alt="">
                         <div class="position-relative p-4 pt-0">
                             <div class="service-icon">
                                 <i class="fa fa-wind fa-3x"></i>
@@ -261,7 +263,7 @@
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item rounded overflow-hidden">
-                        <img class="img-fluid" src="img/img-600x400-3.jpg" alt="">
+                        <img class="img-fluid" src="{{ asset('images/menu-4.jpg') }}" alt="">
                         <div class="position-relative p-4 pt-0">
                             <div class="service-icon">
                                 <i class="fa fa-lightbulb fa-3x"></i>
@@ -274,7 +276,7 @@
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item rounded overflow-hidden">
-                        <img class="img-fluid" src="img/img-600x400-4.jpg" alt="">
+                        <img class="img-fluid" src="{{ asset('images/menu-5.jpg') }}" alt="">
                         <div class="position-relative p-4 pt-0">
                             <div class="service-icon">
                                 <i class="fa fa-solar-panel fa-3x"></i>
@@ -287,7 +289,7 @@
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item rounded overflow-hidden">
-                        <img class="img-fluid" src="img/img-600x400-5.jpg" alt="">
+                        <img class="img-fluid" src="{{ asset('images/menu-6.jpg') }}" alt="">
                         <div class="position-relative p-4 pt-0">
                             <div class="service-icon">
                                 <i class="fa fa-wind fa-3x"></i>
@@ -300,7 +302,7 @@
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item rounded overflow-hidden">
-                        <img class="img-fluid" src="img/img-600x400-6.jpg" alt="">
+                        <img class="img-fluid" src="{{ asset('images/menu-7.jpg') }}" alt="">
                         <div class="position-relative p-4 pt-0">
                             <div class="service-icon">
                                 <i class="fa fa-lightbulb fa-3x"></i>
@@ -322,14 +324,13 @@
             <div class="row g-0 mx-lg-0">
                 <div class="col-lg-6 ps-lg-0 wow fadeIn" data-wow-delay="0.1s" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="img/quote.jpg"
+                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('images/menu-2.jpg') }}"
                             style="object-fit: cover;" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
                     <div class="p-lg-5 pe-lg-0">
-                        <h6 class="text-primary">Free Quote</h6>
-                        <h1 class="mb-4">Get A Free Quote</h1>
+                        <h1 class="text-primary">Contacta con nosotros</h1>
                         <p class="mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
                             diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo
                             erat amet</p>
