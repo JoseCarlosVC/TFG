@@ -599,7 +599,71 @@ body {
     background-color: var(--light);
 }
 
+.text-primary {
+    color: var(--primary) !important;
+    font-family: 'Kalam', cursive !important;
+}
+
 .btn-primary {
     background-color: var(--primary) !important;
     border-color: var(--primary) !important;
+    color: var(--secondary) !important;
+    font-family: 'Comfortaa', cursive !important;
 }
+
+.text-white {
+    color: var(--secondary) !important;
+    font-family: 'Comfortaa', cursive !important;
+}
+
+.text-black {
+    color: var(--dark) !important;
+    font-family: 'Kalam', cursive !important;
+}
+
+.owl-carousel,
+.bg-white,
+.container-fluid {
+    background-color: var(--secondary) !important;
+    border-radius: 10px;
+}
+
+.p-4 {
+    background-color: var(--secondary) !important;
+    border-radius: 0 0 10px 10px;
+}
+
+.mb-4,
+.mb-3 {
+    font-family: 'Kalam', cursive !important;
+    color: var(--dark) !important;
+}
+
+p {
+    font-family: 'Comfortaa', cursive !important;
+    color: var(--icons) !important;
+}
+
+.fw-medium {
+    color: var(--icons) !important;
+    font-family: 'Comfortaa', cursive !important;
+}
+
+.pb-2 {
+    color: var(--icons) !important;
+    font-family: 'Comfortaa', cursive !important;
+}
+
+.img-fluid {
+    object-fit: contain !important;
+}
+
+/*
+    font-family: 'Kalam', cursive !important;
+    font-family: 'Comfortaa', cursive !important;
+    var(--primary) !important;
+    var(--secondary) !important;
+    var(--light) !important;
+    var(--dark) !important;
+    var(--icons) !important;
+*/
