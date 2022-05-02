@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string("nombreUsuario");
             $table->string("apellidos");
-            $table->string("correo");
+            $table->string("correo")->unique();
             $table->date("fechaNacimiento");
             $table->string("direccion");
             $table->string("telefono");
+            $table->string("password");
             $table->timestamps();
         });
     }
@@ -34,4 +35,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('usuarios');
     }
+
 };

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -24,7 +25,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('signin');
     }
 
     /**
@@ -35,7 +36,13 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Eliminamos el token de seguridad @csrf (Dominios de origen cruzado)
+        $datosUsuario = request() ->except('_token');
+        //Encriptamos la contraseña
+        $password = request('password');
+        $hash = Hash::make($password);
+        $datosUsuario['password'] = $hash;
+        Usuario::insert($datosUsuario);
     }
 
     /**
@@ -78,8 +85,10 @@ class UsuarioController extends Controller
      * @param  \App\Models\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuario $usuario)
+    public function destroy($id)
     {
         //
+        Usuario::destroy($id);
+        return redirect('usuario');
     }
 }
