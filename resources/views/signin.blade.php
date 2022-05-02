@@ -1,3 +1,4 @@
+@include('head')
 <form action="{{ url('/usuario') }}" method="POST">
     @csrf
     <label for="nombreUsuario">Nombre de usuario: </label>
@@ -23,3 +24,4 @@
     <br>
     <input type="submit" value="Enviar">
 </form>
+@include('footer')
