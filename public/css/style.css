@@ -658,6 +658,10 @@ p {
     object-fit: contain !important;
 }
 
+#logo {
+    width: 50%;
+}
+
 /*
     font-family: 'Kalam', cursive !important;
     font-family: 'Comfortaa', cursive !important;
