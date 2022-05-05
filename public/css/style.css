@@ -662,6 +662,15 @@ p {
     width: 50%;
 }
 
+.card-body {
+    background-color: var(--secondary) !important;
+}
+
+.card-header {
+    background-color: var(--primary) !important;
+    color: var(--dark) !important;
+}
+
 /*
     font-family: 'Kalam', cursive !important;
     font-family: 'Comfortaa', cursive !important;

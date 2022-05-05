@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Auth;
 class UsuarioController extends Controller
 {
     /**
@@ -90,5 +90,35 @@ class UsuarioController extends Controller
         //
         Usuario::destroy($id);
         return redirect('usuario');
+    }
+
+    public function login(Request $request){
+        $correo = request('correo');
+
+        $datos = Usuario::find(3);
+        var_dump($datos);
+        /*if($datos){
+            return redirect('/')->with('mensaje','Has iniciado sesión!');
+        }else{
+            return redirect('login')->with('mensaje', 'Error al iniciar sesión');
+        }
+*/
+
+
+
+
+
+/*
+        request()->validate([
+            'correo' => 'required',
+            'password' => 'required',
+        ]);
+
+        $credenciales = $request->only('email', 'password');
+        if(Auth::attempt($credenciales)){
+            return redirect('index')->with('mensaje','Has iniciado sesión!');
+        }else{
+            return redirect('login')->with('mensaje', 'Error al iniciar sesión');
+        }*/
     }
 }

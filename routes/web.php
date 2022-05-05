@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UsuarioController;
+use App\Models\Usuario;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,3 +52,5 @@ Route::get('/auth/verify', function () {
 });
 
 Route::resource('usuario', UsuarioController::class);
+
+Route::post('/usuario/login',  [UsuarioController::class,'login']);

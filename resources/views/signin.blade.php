@@ -29,16 +29,15 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="nombreUsuario"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                            <label for="apellidos"
+                                class="col-md-4 col-form-label text-md-end">{{ __('Surname') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nombreUsuario" type="text"
-                                    class="form-control @error('nombreUsuario') no es válido @enderror"
-                                    name="nombreUsuario" value="{{ old('nombreUsuario') }}" required
-                                    autocomplete="nombreUsuario" autofocus>
+                                <input id="apellidos" type="text"
+                                    class="form-control @error('apellidos') no es válido @enderror" name="apellidos"
+                                    value="{{ old('apellidos') }}" required autocomplete="apellidos" autofocus>
 
-                                @error('nombreUsuario')
+                                @error('apellidos')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -55,6 +54,41 @@
                                     name="correo" value="{{ old('correo') }}" required autocomplete="correo">
 
                                 @error('correo')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="fechaNacimiento"
+                                class="col-md-4 col-form-label text-md-end">{{ __('Birthdate') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="fechaNacimiento" type="date"
+                                    class="form-control @error('fechaNacimiento') inválida @enderror"
+                                    name="fechaNacimiento" value="{{ old('fechaNacimiento') }}" required
+                                    autocomplete="fechaNacimiento">
+
+                                @error('fechaNacimiento')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="direccion"
+                                class="col-md-4 col-form-label text-md-end">{{ __('Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="direccion" type="text"
+                                    class="form-control @error('direccion') inválida @enderror" name="direccion"
+                                    value="{{ old('direccion') }}" required autocomplete="direccion">
+
+                                @error('direccion')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -94,40 +128,10 @@
                                 <input value="Registrarse" type="submit" class="btn btn-primary" />
                             </div>
                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-                        <label for="nombreUsuario">Nombre de usuario: </label>
-                        <input type="text" name="nombreUsuario" required>
-                        <br>
-                        <label for="apellidos">Apellidos: </label>
-                        <input type="text" name="apellidos" required>
-                        <br>
-                        <label for="correo">Correo electrónico: </label>
-                        <input type="email" name="correo" required>
-                        <br>
-                        <label for="fechaNacimiento">Fecha de nacimiento: </label>
-                        <input type="date" name="fechaNacimiento" required>
-                        <br>
-                        <label for="direccion">Dirección: </label>
-                        <input type="text" name="direccion" required>
-                        <br>
-                        <label for="telefono">Número de teléfono: </label>
-                        <input type="text" name="telefono" required>
-                        <br>
-                        <label for="password">Contraseña: </label>
-                        <input type="password" name="password" required>
-                        <br>
-                        <input type="submit" value="Enviar">
                     </form>
-
-                    @include('footer')
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@include('footer')

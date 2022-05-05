@@ -1,0 +1,11 @@
+{
+    "Register": "Regístrate",
+    "Name": "Nombre",
+    "Surname": "Apellidos",
+    "Email Address": "Correo electrónico",
+    "Birthdate": "Fecha de nacimiento",
+    "Address": "Dirección",
+    "Password": "Contraseña",
+    "Confirm Password": "Confirmar contraseña",
+    "Login": "Inicia sesión"
+}
