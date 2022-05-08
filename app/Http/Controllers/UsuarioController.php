@@ -93,32 +93,25 @@ class UsuarioController extends Controller
     }
 
     public function login(Request $request){
-        $correo = request('correo');
 
-        $datos = Usuario::find(3);
-        var_dump($datos);
-        /*if($datos){
-            return redirect('/')->with('mensaje','Has iniciado sesión!');
-        }else{
-            return redirect('login')->with('mensaje', 'Error al iniciar sesión');
-        }
-*/
-
-
-
-
-
-/*
-        request()->validate([
-            'correo' => 'required',
-            'password' => 'required',
-        ]);
-
-        $credenciales = $request->only('email', 'password');
+        $credenciales = $request->only('correo','password');
         if(Auth::attempt($credenciales)){
-            return redirect('index')->with('mensaje','Has iniciado sesión!');
+            return redirect('/')->with('mensaje','Has iniciado sesión!');
+
         }else{
             return redirect('login')->with('mensaje', 'Error al iniciar sesión');
-        }*/
+
+        }
+
+/**
+ * Función de referencia
+ * if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+    RateLimiter::hit($this->throttleKey());
+
+    throw ValidationException::withMessages([
+        'email' => trans('auth.failed'),
+    ]);
+}
+ */
     }
 }

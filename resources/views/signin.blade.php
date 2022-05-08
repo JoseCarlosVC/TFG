@@ -104,7 +104,9 @@
                                 <input id="password" type="password"
                                     class="form-control @error('password') no es válida @enderror" name="password"
                                     required autocomplete="new-password">
-
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>Holauenas</strong>
+                                </span>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -125,7 +127,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <input value="Registrarse" type="submit" class="btn btn-primary" />
+                                <input value="Registrarse" type="submit" id="enviar" class="btn btn-primary" />
                             </div>
                         </div>
                     </form>
@@ -134,4 +136,5 @@
         </div>
     </div>
 </div>
+
 @include('footer')
