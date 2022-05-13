@@ -7,5 +7,6 @@
     "Address": "Dirección",
     "Password": "Contraseña",
     "Confirm Password": "Confirmar contraseña",
-    "Login": "Inicia sesión"
+    "Login": "Inicia sesión",
+    "Phone": "Número de teléfono"
 }

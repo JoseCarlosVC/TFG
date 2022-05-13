@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string("direccion");
             $table->string("telefono");
             $table->string("password");
+            $table->integer("rolUsuario");
             $table->timestamps();
         });
     }

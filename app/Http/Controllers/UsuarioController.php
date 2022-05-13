@@ -6,6 +6,7 @@ use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 class UsuarioController extends Controller
 {
     /**
@@ -37,12 +38,15 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         //Eliminamos el token de seguridad @csrf (Dominios de origen cruzado)
-        $datosUsuario = request() ->except('_token');
+        $datosUsuario = request() ->except('_token', 'password_confirmation');
+        //Y la repetición de la contraseña
+
         //Encriptamos la contraseña
         $password = request('password');
         $hash = Hash::make($password);
         $datosUsuario['password'] = $hash;
         Usuario::insert($datosUsuario);
+        return redirect('/')->with('mensaje','Te has registrado correctamente');
     }
 
     /**
@@ -93,11 +97,23 @@ class UsuarioController extends Controller
     }
 
     public function login(Request $request){
+        /* Prueba de sesiones
+        $credenciales = $request->only('correo','password');
+
+        Auth::attempt($credenciales);
+        $user = Auth::User();
+        Session::put('usuario',$user);
+        $user = Session::get('usuario');
+        //var_dump($user);
+        return redirect('/')->with('mensaje','Has iniciado sesión!');*/
+
+
 
         $credenciales = $request->only('correo','password');
         if(Auth::attempt($credenciales)){
+            $user = Auth::User();
+            Session::put('usuario',$user);
             return redirect('/')->with('mensaje','Has iniciado sesión!');
-
         }else{
             return redirect('login')->with('mensaje', 'Error al iniciar sesión');
 

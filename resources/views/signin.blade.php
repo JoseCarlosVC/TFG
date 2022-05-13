@@ -19,12 +19,6 @@
                                     class="form-control @error('nombreUsuario') no es válido @enderror"
                                     name="nombreUsuario" value="{{ old('nombreUsuario') }}" required
                                     autocomplete="nombreUsuario" autofocus>
-
-                                @error('nombreUsuario')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
 
@@ -36,12 +30,6 @@
                                 <input id="apellidos" type="text"
                                     class="form-control @error('apellidos') no es válido @enderror" name="apellidos"
                                     value="{{ old('apellidos') }}" required autocomplete="apellidos" autofocus>
-
-                                @error('apellidos')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
 
@@ -52,12 +40,6 @@
                             <div class="col-md-6">
                                 <input id="correo" type="email" class="form-control @error('correo') inválido @enderror"
                                     name="correo" value="{{ old('correo') }}" required autocomplete="correo">
-
-                                @error('correo')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
 
@@ -70,12 +52,6 @@
                                     class="form-control @error('fechaNacimiento') inválida @enderror"
                                     name="fechaNacimiento" value="{{ old('fechaNacimiento') }}" required
                                     autocomplete="fechaNacimiento">
-
-                                @error('fechaNacimiento')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
 
@@ -87,12 +63,17 @@
                                 <input id="direccion" type="text"
                                     class="form-control @error('direccion') inválida @enderror" name="direccion"
                                     value="{{ old('direccion') }}" required autocomplete="direccion">
+                            </div>
+                        </div>
 
-                                @error('direccion')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        <div class="row mb-3">
+                            <label for="telefono"
+                                class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="telefono" type="tel"
+                                    class="form-control @error('telefono') inválido @enderror" name="telefono"
+                                    value="{{ old('telefono') }}" required autocomplete="telefono">
                             </div>
                         </div>
 
@@ -104,14 +85,6 @@
                                 <input id="password" type="password"
                                     class="form-control @error('password') no es válida @enderror" name="password"
                                     required autocomplete="new-password">
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>Holauenas</strong>
-                                </span>
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
 
@@ -124,7 +97,7 @@
                                     name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
+                        <input type="hidden" name="rolUsuario" value="0">
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <input value="Registrarse" type="submit" id="enviar" class="btn btn-primary" />

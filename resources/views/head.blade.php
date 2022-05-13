@@ -87,7 +87,7 @@
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.html" class="nav-item nav-link active">Home</a>
                 <a href="{{ url('/signin') }}" class="nav-item nav-link">Sign In</a>
-                <a href="service.html" class="nav-item nav-link">Service</a>
+                <a href="{{ url('/login') }}" class="nav-item nav-link">Login</a>
                 <a href="project.html" class="nav-item nav-link">Project</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>

@@ -671,6 +671,13 @@ p {
     color: var(--dark) !important;
 }
 
+.invalid-feedback {
+    display: initial !important;
+    font-weight: bold !important;
+    font-family: 'Comfortaa', cursive !important;
+
+}
+
 /*
     font-family: 'Kalam', cursive !important;
     font-family: 'Comfortaa', cursive !important;
