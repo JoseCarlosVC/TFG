@@ -7,7 +7,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ url('/usuario') }}">
+                    <form method="POST" action="{{ url('/usuario') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
@@ -98,6 +98,15 @@
                             </div>
                         </div>
                         <input type="hidden" name="rolUsuario" value="0">
+
+                        <div class="row mb-3">
+                            <label for="foto" class="col-md-4 col-form-label text-md-end">{{ __('Picture') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="foto" type="file" class="form-control" name="foto" required
+                                    autocomplete="foto">
+                            </div>
+                        </div>
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <input value="Registrarse" type="submit" id="enviar" class="btn btn-primary" />

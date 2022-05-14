@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\View;
 class UsuarioController extends Controller
 {
     /**
@@ -16,7 +20,11 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+        //En el index queremos mostrar los locales, vamos a seleccionar todos los usuarios con rol 1
+        $locales = DB::table('usuarios')
+            ->where('rolUsuario', '=', 1)
+            ->get();
+        return view('index',['locales'=>$locales]);
     }
 
     /**
@@ -37,15 +45,25 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //Eliminamos el token de seguridad @csrf (Dominios de origen cruzado)
+        //Eliminamos el token de seguridad @csrf (Dominios de origen cruzado) y la repetición de la contraseña
         $datosUsuario = request() ->except('_token', 'password_confirmation');
-        //Y la repetición de la contraseña
 
         //Encriptamos la contraseña
         $password = request('password');
         $hash = Hash::make($password);
         $datosUsuario['password'] = $hash;
-        Usuario::insert($datosUsuario);
+
+        if($request ->hasFile(('foto'))){
+            $datosUsuario['foto'] = $request->file('foto')->store('uploads','public');
+        }
+
+
+        //TODO Comprobar que el correo exista antes de insertar el usuario
+        try{
+            Usuario::insert($datosUsuario);
+        }catch(Exception $err){
+            return "Error ".$err;
+        }
         return redirect('/')->with('mensaje','Te has registrado correctamente');
     }
 
@@ -129,5 +147,15 @@ class UsuarioController extends Controller
     ]);
 }
  */
+    }
+
+    public function mostrarLocal($id){
+        try{
+            $local = Usuario::where('rolUsuario',1)->findOrFail($id);
+            return view('local',['local'=>$local]);
+        }catch(Exception $err){
+            //Si se accede a un id que no sea de local (rol 1) o un id que no exista, redireccionamos al index
+            return redirect('/');
+        }
     }
 }

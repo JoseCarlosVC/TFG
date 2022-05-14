@@ -46,19 +46,12 @@
     <div class="container-fluid bg-dark p-0">
         <div class="row gx-0 d-none d-lg-flex">
             <div class="col-lg-7 px-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center me-4">
-                    <small class="fa fa-map-marker-alt text-primary me-2"></small>
-                    <small>123 Street, New York, USA</small>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center">
-                    <small class="far fa-clock text-primary me-2"></small>
-                    <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
-                </div>
+
             </div>
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center me-4">
-                    <small class="fa fa-phone-alt text-primary me-2"></small>
-                    <small>+012 345 6789</small>
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+34 600 00 00 00</span>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center mx-n2">
                     <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i
@@ -85,10 +78,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="{{ url('/signin') }}" class="nav-item nav-link">Sign In</a>
-                <a href="{{ url('/login') }}" class="nav-item nav-link">Login</a>
-                <a href="project.html" class="nav-item nav-link">Project</a>
+                <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                <a href="{{ url('/signin') }}" class="nav-item nav-link">Registro</a>
+                <a href="{{ url('/login') }}" class="nav-item nav-link">Iniciar sesión</a>
+                <!--TODO no puede estar aquí puesto, cada local necesita de su id para ir a su página  --><a
+                    href="{{ url('/local') }}" class="nav-item nav-link">Local</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu bg-light m-0">

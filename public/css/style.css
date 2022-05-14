@@ -675,8 +675,13 @@ p {
     display: initial !important;
     font-weight: bold !important;
     font-family: 'Comfortaa', cursive !important;
-
 }
+
+.fas {
+    color: var(--icons) !important;
+}
+
+
 
 /*
     font-family: 'Kalam', cursive !important;

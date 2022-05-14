@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string("telefono");
             $table->string("password");
             $table->integer("rolUsuario");
+            $table->string("foto")->nullable(true);
             $table->timestamps();
         });
     }

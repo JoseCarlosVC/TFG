@@ -16,16 +16,12 @@ use App\Models\Usuario;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+//Llamamos a la funcion index del usuario (esta recoge los locales que se muestran en el index), y esta a su vez devuelve al index
+Route::resource('/', UsuarioController::class);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/local', function () {
-    return view('local');
-});
 
 Route::get('/login', function () {
     return view('login');
@@ -54,3 +50,8 @@ Route::get('/auth/verify', function () {
 Route::resource('usuario', UsuarioController::class);
 
 Route::post('/usuario/login',  [UsuarioController::class,'login']);
+
+Route::get('/local/{id}', [UsuarioController::class,'mostrarLocal']);
+Route::get('/local', function(){
+    return redirect('/');
+});
