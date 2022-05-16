@@ -1,4 +1,7 @@
 @include('head')
+<?php
+dd(session()->all());
+?>
 <!-- Comienzo Carrusel -->
 <div class="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">
     <h1 class="display-2 text-black animated slideInDown">Platos destacados</h1>
@@ -62,10 +65,10 @@
     @foreach ($locales as $local)
         <div class="container about px-lg-0">
             <div class="row g-0 mx-lg-0">
-                <div class="col-lg-6 ps-lg-0 wow fadeIn" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="col-lg-6 ps-lg-0 wow fadeIn" data-wow-delay="0.1s">
                     <div class="position-relative h-100">
                         <img class="position-absolute img-fluid w-100 h-100"
-                            src="{{ asset('storage') . '/' . $local->foto }}" style="object-fit: cover;" alt="">
+                            src="{{ asset('storage') . '/' . $local->foto }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
@@ -93,7 +96,7 @@
 <!-- Service Start -->
 <div class="container-xxl py-5">
     <div class="container">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
             <h1 class="display-2 text-black animated slideInDown">Especialidades del día</h1>
         </div>
         <div class="row g-4">
@@ -184,10 +187,10 @@
 <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
     <div class="container quote px-lg-0">
         <div class="row g-0 mx-lg-0">
-            <div class="col-lg-6 ps-lg-0 wow fadeIn" data-wow-delay="0.1s" style="min-height: 400px;">
+            <div class="col-lg-6 ps-lg-0 wow fadeIn" data-wow-delay="0.1s">
                 <div class="position-relative h-100">
                     <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('images/menu-2.jpg') }}"
-                        style="object-fit: cover;" alt="">
+                        alt="">
                 </div>
             </div>
             <div class="col-lg-6 quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
@@ -199,19 +202,16 @@
                     <form>
                         <div class="row g-3">
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control border-0" placeholder="Your Name"
-                                    style="height: 55px;">
+                                <input type="text" class="form-control border-0" placeholder="Your Name">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="email" class="form-control border-0" placeholder="Your Email"
-                                    style="height: 55px;">
+                                <input type="email" class="form-control border-0" placeholder="Your Email">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control border-0" placeholder="Your Mobile"
-                                    style="height: 55px;">
+                                <input type="text" class="form-control border-0" placeholder="Your Mobile">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <select class="form-select border-0" style="height: 55px;">
+                                <select class="form-select border-0">
                                     <option selected>Select A Service</option>
                                     <option value="1">Service 1</option>
                                     <option value="2">Service 2</option>

@@ -677,7 +677,8 @@ p {
     font-family: 'Comfortaa', cursive !important;
 }
 
-.fas {
+.fas,
+.fab {
     color: var(--icons) !important;
 }
 

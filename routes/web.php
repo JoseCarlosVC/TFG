@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UsuarioController;
@@ -52,6 +53,11 @@ Route::resource('usuario', UsuarioController::class);
 Route::post('/usuario/login',  [UsuarioController::class,'login']);
 
 Route::get('/local/{id}', [UsuarioController::class,'mostrarLocal']);
+
 Route::get('/local', function(){
     return redirect('/');
 });
+
+Route::resource('producto', ProductoController::class);
+
+Route::get('/registrarProducto', ProductoController::class,'registrarProducto');

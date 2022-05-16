@@ -36,7 +36,7 @@
     <!-- Spinner Start -->
     <!--<div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <div class="spinner-border text-primary" role="status">
             <span class="sr-only">Loading...</span>
         </div>
     </div>-->
@@ -54,13 +54,14 @@
                     <span>+34 600 00 00 00</span>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center mx-n2">
-                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i
-                            class="fab fa-twitter"></i></a>
-                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i
-                            class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-square btn-link rounded-0" href=""><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary"
+                        href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary"
+                        href="https://twitter.com/?lang=es"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary"
+                        href="https://es.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-square btn-link rounded-0" href="https://www.instagram.com/"><i
+                            class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -81,8 +82,9 @@
                 <a href="index.html" class="nav-item nav-link active">Inicio</a>
                 <a href="{{ url('/signin') }}" class="nav-item nav-link">Registro</a>
                 <a href="{{ url('/login') }}" class="nav-item nav-link">Iniciar sesión</a>
-                <!--TODO no puede estar aquí puesto, cada local necesita de su id para ir a su página  --><a
-                    href="{{ url('/local') }}" class="nav-item nav-link">Local</a>
+                @if (Session::get('usuario')['rolUsuario'] == 1)
+                    <a href="{{ url('/registrarProducto') }}" class="nav-item nav-link">Registrar Producto</a>
+                @endif
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu bg-light m-0">

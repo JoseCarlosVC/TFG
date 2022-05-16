@@ -3,16 +3,15 @@
 <div class="container-fluid page-header py-5 mb-5">
     <div class="container py-5">
         <h1 class="display-3 text-white mb-3 animated slideInDown">{{ $local->nombreUsuario }}</h1>
-
+        <img src="{{ asset('storage') . '/' . $local->foto }}" alt="Foto restaurante">
     </div>
 </div>
 <!-- Page Header End -->
 <!-- Service Start -->
 <div class="container-xxl py-5">
     <div class="container">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h6 class="text-primary">Our Services</h6>
-            <h1 class="mb-4">We Are Pioneers In The World Of Renewable Energy</h1>
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
+            <h1 class="text-primary">Nuestros platos</h1>
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
