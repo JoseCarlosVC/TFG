@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\View;
 use App\Http\Requests\StoreproductoRequest;
 use App\Http\Requests\UpdateproductoRequest;
 use App\Models\producto;
-use Session;
+use Illuminate\Support\Facades\Session;
+
 class ProductoController extends Controller
 {
     /**
@@ -37,6 +44,18 @@ class ProductoController extends Controller
     public function store(StoreproductoRequest $request)
     {
         //
+        $datosProducto = request() ->except('_token');
+        if($request ->hasFile(('foto'))){
+            $datosProducto['foto'] = $request->file('foto')->store('uploads','public');
+        }
+
+        try{
+            Producto::insert($datosProducto);
+            $local = Session::get('usuario')['id'];
+            return view('/local/'.$local)->with('mensaje','Producto registrado correctamente');
+        }catch(Exception $err){
+            return "Error ".$err;
+        }
     }
 
     /**
@@ -86,7 +105,10 @@ class ProductoController extends Controller
 
     public function registrarProducto(){
         if(Session::get('usuario')['rolUsuario'] == 1){
-
+            return view('registrarProducto');
+        }else{
+            //Si no se accede a la página con un rol de local, no se permitirá acceder al formulario ni crear productos
+            return redirect('/');
         }
 
     }

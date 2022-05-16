@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->string("nombreProducto");
-            $table->text("detalles");
+            $table->text("detalles")->nullable(true);
             $table->float("precio",5,2);
             $table->string("foto")->nullable(true);
             $table->foreignId('idLocal');

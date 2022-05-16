@@ -82,7 +82,7 @@
                 <a href="index.html" class="nav-item nav-link active">Inicio</a>
                 <a href="{{ url('/signin') }}" class="nav-item nav-link">Registro</a>
                 <a href="{{ url('/login') }}" class="nav-item nav-link">Iniciar sesión</a>
-                @if (Session::get('usuario')['rolUsuario'] == 1)
+                @if (Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 1)
                     <a href="{{ url('/registrarProducto') }}" class="nav-item nav-link">Registrar Producto</a>
                 @endif
                 <div class="nav-item dropdown">

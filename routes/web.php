@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UsuarioController;
 use App\Models\Usuario;
+use App\Models\producto;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -60,4 +62,4 @@ Route::get('/local', function(){
 
 Route::resource('producto', ProductoController::class);
 
-Route::get('/registrarProducto', ProductoController::class,'registrarProducto');
+Route::get('/registrarProducto', [ProductoController::class,'registrarProducto']);

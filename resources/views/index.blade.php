@@ -1,6 +1,6 @@
 @include('head')
 <?php
-dd(session()->all());
+//dd(session()->all());
 ?>
 <!-- Comienzo Carrusel -->
 <div class="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">

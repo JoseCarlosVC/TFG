@@ -61,10 +61,10 @@ class UsuarioController extends Controller
         //TODO Comprobar que el correo exista antes de insertar el usuario
         try{
             Usuario::insert($datosUsuario);
+            return redirect('/')->with('mensaje','Te has registrado correctamente');
         }catch(Exception $err){
             return "Error ".$err;
         }
-        return redirect('/')->with('mensaje','Te has registrado correctamente');
     }
 
     /**
