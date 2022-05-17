@@ -51,7 +51,7 @@
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center me-4">
                     <i class="fas fa-phone-alt"></i>
-                    <span>+34 600 00 00 00</span>
+                    <span class="text-black">+34 600 00 00 00</span>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center mx-n2">
                     <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary"

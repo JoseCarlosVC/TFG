@@ -41,7 +41,7 @@ class ProductoController extends Controller
      * @param  \App\Http\Requests\StoreproductoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreproductoRequest $request)
+    public function store(Request $request)
     {
         //
         $datosProducto = request() ->except('_token');
@@ -52,7 +52,7 @@ class ProductoController extends Controller
         try{
             Producto::insert($datosProducto);
             $local = Session::get('usuario')['id'];
-            return view('/local/'.$local)->with('mensaje','Producto registrado correctamente');
+            return redirect('local/'.$local)->with('mensaje','Producto registrado correctamente');
         }catch(Exception $err){
             return "Error ".$err;
         }
@@ -110,6 +110,10 @@ class ProductoController extends Controller
             //Si no se accede a la página con un rol de local, no se permitirá acceder al formulario ni crear productos
             return redirect('/');
         }
+
+    }
+
+    public function guardar(){
 
     }
 }

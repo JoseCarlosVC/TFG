@@ -152,7 +152,10 @@ class UsuarioController extends Controller
     public function mostrarLocal($id){
         try{
             $local = Usuario::where('rolUsuario',1)->findOrFail($id);
-            return view('local',['local'=>$local]);
+            $productos = DB::table('productos')
+                        ->where('idLocal','=',$id)
+                        ->get();
+            return view('local',['local'=>$local,'productos'=>$productos]);
         }catch(Exception $err){
             //Si se accede a un id que no sea de local (rol 1) o un id que no exista, redireccionamos al index
             return redirect('/');

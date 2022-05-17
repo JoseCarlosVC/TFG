@@ -168,7 +168,6 @@
     left: 0;
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, .1);
 }
 
 @media (max-width: 768px) {
@@ -621,11 +620,15 @@ body {
     font-family: 'Kalam', cursive !important;
 }
 
-.owl-carousel,
-.bg-white,
-.container-fluid {
+.owl-carousel {
     background-color: var(--secondary) !important;
     border-radius: 10px;
+}
+
+
+.bg-white,
+.bg-dark {
+    background-color: var(--secondary) !important;
 }
 
 .p-4 {
@@ -656,6 +659,7 @@ p {
 
 .img-fluid {
     object-fit: contain !important;
+    width: 25% !important;
 }
 
 #logo {
@@ -682,7 +686,18 @@ p {
     color: var(--icons) !important;
 }
 
+.navbar {
+    border-radius: 0 0 10px 10px;
+}
 
+.display-2 {
+    margin-top: 1.5vh !important;
+    margin-left: 1vw !important;
+}
+
+.pb-5 {
+    margin: 0 1vw !important;
+}
 
 /*
     font-family: 'Kalam', cursive !important;
