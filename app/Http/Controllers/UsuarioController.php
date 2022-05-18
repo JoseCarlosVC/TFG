@@ -27,7 +27,7 @@ class UsuarioController extends Controller
         //Seleccionamos también 5 productos aleatoriamente
         $productos = DB::table('productos')
             ->inRandomOrder()
-            ->limit(5)
+            ->limit(6)
             ->get();
         return view('index',['locales'=>$locales, 'productos'=>$productos]);
     }

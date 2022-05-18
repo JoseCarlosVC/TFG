@@ -46,7 +46,6 @@
     <div class="container-fluid bg-dark p-0">
         <div class="row gx-0 d-none d-lg-flex">
             <div class="col-lg-7 px-5 text-start">
-
             </div>
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center me-4">
@@ -54,14 +53,10 @@
                     <span class="text-black">+34 600 00 00 00</span>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center mx-n2">
-                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary"
-                        href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary"
-                        href="https://twitter.com/?lang=es"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary"
-                        href="https://es.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-square btn-link rounded-0" href="https://www.instagram.com/"><i
-                            class="fab fa-instagram"></i></a>
+                    <a class="btn btn-square" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square" href="https://twitter.com/?lang=es"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-square" href="https://es.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-square" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
