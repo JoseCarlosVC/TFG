@@ -24,7 +24,12 @@ class UsuarioController extends Controller
         $locales = DB::table('usuarios')
             ->where('rolUsuario', '=', 1)
             ->get();
-        return view('index',['locales'=>$locales]);
+        //Seleccionamos también 5 productos aleatoriamente
+        $productos = DB::table('productos')
+            ->inRandomOrder()
+            ->limit(5)
+            ->get();
+        return view('index',['locales'=>$locales, 'productos'=>$productos]);
     }
 
     /**

@@ -12,39 +12,6 @@
                 <div class="container">
                     <div class="row justify-content-start">
                         <div class="col-10 col-lg-8">
-
-                            <p class="fs-5 fw-medium text-white mb-4 pb-3">Vero elitr justo clita lorem. Ipsum dolor
-                                at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea
-                                elitr.</p>
-                            <a href="" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Haz tu
-                                pedido</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="owl-carousel-item position-relative" data-dot="<img src='{{ asset('images/dish-2.png') }}'>">
-            <img class="img-fluid" src="{{ asset('images/dish-2.png') }}" alt="">
-            <div class="owl-carousel-inner">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-10 col-lg-8">
-                            <p class="fs-5 fw-medium text-white mb-4 pb-3">Vero elitr justo clita lorem. Ipsum dolor
-                                at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea
-                                elitr.</p>
-                            <a href="" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Haz tu
-                                pedido</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="owl-carousel-item position-relative" data-dot="<img src='{{ asset('images/dish-3.png') }}'>">
-            <img class="img-fluid" src="{{ asset('images/dish-3.png') }}" alt="">
-            <div class="owl-carousel-inner">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-10 col-lg-8">
                             <p class="fs-5 fw-medium text-white mb-4 pb-3">Vero elitr justo clita lorem. Ipsum dolor
                                 at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea
                                 elitr.</p>
@@ -60,14 +27,14 @@
 <!-- Fin Carrusel -->
 
 <!-- Comienzo restaurantes -->
+<h1 class="display-2 text-black animated slideInDown">Nuestros restaurantes</h1>
 <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
-    <h1 class="display-2 text-black animated slideInDown">Nuestros restaurantes</h1>
     @foreach ($locales as $local)
         <div class="container about px-lg-0">
             <div class="row g-0 mx-lg-0">
                 <div class="col-lg-6 ps-lg-0 wow fadeIn" data-wow-delay="0.1s">
                     <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100"
+                        <img class="position-absolute img-big w-100 h-100"
                             src="{{ asset('storage') . '/' . $local->foto }}" alt="">
                     </div>
                 </div>
@@ -93,95 +60,30 @@
 <!-- Fin restaurantes -->
 
 
-<!-- Service Start -->
+<!-- Comienzo Platos -->
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
             <h1 class="display-2 text-black animated slideInDown">Especialidades del día</h1>
         </div>
         <div class="row g-4">
-            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item rounded overflow-hidden">
-                    <img class="img-fluid" src="{{ asset('images/menu-2.jpg') }}" alt="">
-                    <div class="position-relative p-4 pt-0">
-                        <div class="service-icon">
-                            <i class="fa fa-solar-panel fa-3x"></i>
+            @foreach ($productos as $producto)
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item rounded overflow-hidden">
+                        <img class="img-fluid" src="{{ asset('storage') . '/' . $producto->foto }}" alt="">
+                        <div class="position-relative p-4 pt-0">
+                            <h4 class="mb-3">{{ $producto->nombreProducto }}</h4>
+                            <p>{{ $producto->detalles }}</p>
+                            <a class="small fw-medium" href="">Añadir al pedido<i
+                                    class="fa fa-arrow-right ms-2"></i></a>
                         </div>
-                        <h4 class="mb-3">Solar Panels</h4>
-                        <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
-                        <a class="small fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item rounded overflow-hidden">
-                    <img class="img-fluid" src="{{ asset('images/menu-3.jpg') }}" alt="">
-                    <div class="position-relative p-4 pt-0">
-                        <div class="service-icon">
-                            <i class="fa fa-wind fa-3x"></i>
-                        </div>
-                        <h4 class="mb-3">Wind Turbines</h4>
-                        <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
-                        <a class="small fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="service-item rounded overflow-hidden">
-                    <img class="img-fluid" src="{{ asset('images/menu-4.jpg') }}" alt="">
-                    <div class="position-relative p-4 pt-0">
-                        <div class="service-icon">
-                            <i class="fa fa-lightbulb fa-3x"></i>
-                        </div>
-                        <h4 class="mb-3">Hydropower Plants</h4>
-                        <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
-                        <a class="small fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item rounded overflow-hidden">
-                    <img class="img-fluid" src="{{ asset('images/menu-5.jpg') }}" alt="">
-                    <div class="position-relative p-4 pt-0">
-                        <div class="service-icon">
-                            <i class="fa fa-solar-panel fa-3x"></i>
-                        </div>
-                        <h4 class="mb-3">Solar Panels</h4>
-                        <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
-                        <a class="small fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item rounded overflow-hidden">
-                    <img class="img-fluid" src="{{ asset('images/menu-6.jpg') }}" alt="">
-                    <div class="position-relative p-4 pt-0">
-                        <div class="service-icon">
-                            <i class="fa fa-wind fa-3x"></i>
-                        </div>
-                        <h4 class="mb-3">Wind Turbines</h4>
-                        <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
-                        <a class="small fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="service-item rounded overflow-hidden">
-                    <img class="img-fluid" src="{{ asset('images/menu-7.jpg') }}" alt="">
-                    <div class="position-relative p-4 pt-0">
-                        <div class="service-icon">
-                            <i class="fa fa-lightbulb fa-3x"></i>
-                        </div>
-                        <h4 class="mb-3">Hydropower Plants</h4>
-                        <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam.</p>
-                        <a class="small fw-medium" href="">Read More<i class="fa fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
-<!-- Service End -->
+<!-- Fin Platos -->
 
 <!-- Quote Start -->
 <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">

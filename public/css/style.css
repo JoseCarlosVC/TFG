@@ -595,7 +595,8 @@
 /** Modificaciones **/
 
 body {
-    background-color: var(--light);
+    background-color: var(--light) !important;
+    font-family: 'Comfortaa', cursive !important;
 }
 
 .text-primary {
@@ -627,7 +628,8 @@ body {
 
 
 .bg-white,
-.bg-dark {
+.bg-dark,
+.bg-light {
     background-color: var(--secondary) !important;
 }
 
@@ -695,8 +697,19 @@ p {
     margin-left: 1vw !important;
 }
 
-.pb-5 {
+.pb-5,
+.my-5 {
     margin: 0 1vw !important;
+    width: 98% !important;
+}
+
+.img-big {
+    width: 85% !important;
+}
+
+.my-5 {
+
+    border-radius: 10px;
 }
 
 /*
