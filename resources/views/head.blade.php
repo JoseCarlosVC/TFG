@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="shortcut icon" sizes="192x192" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
     <!--Fuentes de Google-->
@@ -79,6 +80,9 @@
                 <a href="{{ url('/login') }}" class="nav-item nav-link">Iniciar sesión</a>
                 @if (Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 1)
                     <a href="{{ url('/registrarProducto') }}" class="nav-item nav-link">Registrar Producto</a>
+                @endif
+                @if (Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 0 && Session::has('compra'))
+                    <a href="{{ url('/pedido') }}" class="nav-item nav-link">Ver Pedido</a>
                 @endif
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>

@@ -47,63 +47,135 @@ let formPass = document.getElementById("password");
 let formConfirmar = document.getElementById("password-confirm");
 let formTel = document.getElementById("telefono");
 //El evento blur se activa cuando un input del formulario pierde el focus, es decir, se cambia a otro elemento. En este caso, comprobamos la expresión regular de ese campo cuando se cambie a otro campo
-formNombre.addEventListener("blur", function () {
-    let nombreInput = formNombre.value;
+//Usamos los bloques try catch para que, en las páginas sin formulario, no salgan errores al usar los listeners
+try {
+    formNombre.addEventListener("blur", function () {
+        let nombreInput = formNombre.value;
+        if (nombreInput.match(nombreExp)) {
+            activarEnvio();
+            divNombre.removeChild(alertaNombre);
+        } else {
+            desactivarEnvio();
+            divNombre.appendChild(alertaNombre);
+        }
+    });
+} catch (error) {
 
-    if (nombreInput.match(nombreExp)) {
-        activarEnvio();
-        divNombre.removeChild(alertaNombre);
-    } else {
-        desactivarEnvio();
-        divNombre.appendChild(alertaNombre);
+}
+
+try {
+    formApellidos.addEventListener("blur", function () {
+        let apellidosInput = formApellidos.value;
+        if (apellidosInput.match(apellidosExp)) {
+            activarEnvio();
+            divApellidos.removeChild(alertaApellidos);
+        } else {
+            desactivarEnvio();
+            divApellidos.appendChild(alertaApellidos);
+        }
+    });
+} catch (error) {
+
+}
+
+try {
+    formPass.addEventListener("blur", function () {
+        let passInput = formPass.value;
+
+        if (passInput.match(passExp)) {
+            activarEnvio();
+            divPass.removeChild(alertaPass);
+        } else {
+            desactivarEnvio();
+            divPass.appendChild(alertaPass);
+        }
+    });
+} catch (error) {
+
+}
+
+try {
+    formConfirmar.addEventListener("blur", function () {
+        let passInput = formPass.value;
+        let confirmInput = formConfirmar.value;
+
+        if (passInput == confirmInput) {
+            activarEnvio();
+            divConfirm.removeChild(alertaConfirm);
+        } else {
+            desactivarEnvio();
+            divConfirm.appendChild(alertaConfirm);
+        }
+    });
+} catch (error) {
+
+}
+
+try {
+    formTel.addEventListener("blur", function () {
+        let telInput = formTel.value;
+
+        if (telInput.match(telExp)) {
+            activarEnvio();
+            divTel.removeChild(alertaTel);
+        } else {
+            desactivarEnvio();
+            divTel.appendChild(alertaTel);
+        }
+    });
+} catch (error) {
+
+}
+
+//Con esta función manejamos el comportamiento del carrito
+function accionCarro(accion, idProducto) {
+    let cantidad = "";
+    if (accion == "add") {
+        //Si se va a añadir un producto, necesitamos saber cuantas unidades de ese producto se quieren
+        cantidad = $("#cant_" + idProducto).val();
     }
-});
+    $(function () {
+        $.ajax({
+            url: '/carrito',
+            type: 'POST',
+            data: {
+                accion: accion,
+                idProducto: idProducto,
+                cantidad: cantidad,
+                _token: $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (datos) {
+                console.log("done");
+            },
+            error: function () {
+                console.log("error");
+            }
+        });
+    });
 
-formApellidos.addEventListener("blur", function () {
-    let apellidosInput = formApellidos.value;
+}
 
-    if (apellidosInput.match(apellidosExp)) {
-        activarEnvio();
-        divApellidos.removeChild(alertaApellidos);
-    } else {
-        desactivarEnvio();
-        divApellidos.appendChild(alertaApellidos);
-    }
-});
-
-formPass.addEventListener("blur", function () {
-    let passInput = formPass.value;
-
-    if (passInput.match(passExp)) {
-        activarEnvio();
-        divPass.removeChild(alertaPass);
-    } else {
-        desactivarEnvio();
-        divPass.appendChild(alertaPass);
-    }
-});
-
-formConfirmar.addEventListener("blur", function () {
-    let passInput = formPass.value;
-    let confirmInput = formConfirmar.value;
-
-    if (passInput == confirmInput) {
-        activarEnvio();
-        divConfirm.removeChild(alertaConfirm);
-    } else {
-        desactivarEnvio();
-        divConfirm.appendChild(alertaConfirm);
-    }
-});
-
-formTel.addEventListener("blur", function () {
-    let telInput = formTel.value;
-
-    if (telInput.match(telExp)) {
-        activarEnvio();
-        divTel.removeChild(alertaTel);
-    } else {
-        desactivarEnvio();
-        divTel.appendChild(alertaTel);
-    }
+//Manejo de la API para QRs
+$(function () {
+    $(".generarQR").on('submit', function () {
+        let id = $(this).attr('id');
+        $.ajax({
+            url: '/generarQR',
+            type: 'POST',
+            data: {
+                nombre: $('#nombre_' + id).val(),
+                precio: $('#precio_' + id).val(),
+                detalles: $('#detalles_' + id).val(),
+                _token: $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (respuesta) {
+                $("#codigoQR_" + id).attr('src', respuesta['url']);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Status: " + textStatus);
+                alert("Error: " + errorThrown);
+                alert(XMLHttpRequest);
+            }
+        });
+    });
 });

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -61,5 +62,10 @@ Route::get('/local', function(){
 });
 
 Route::resource('producto', ProductoController::class);
+Route::resource('pedido', PedidoController::class);
 
 Route::get('/registrarProducto', [ProductoController::class,'registrarProducto']);
+
+Route::post('/carrito', [PedidoController::class,'carrito']);
+
+Route::post('/generarQR', [ProductoController::class, 'generarQR']);

@@ -116,4 +116,16 @@ class ProductoController extends Controller
     public function guardar(){
 
     }
+
+    public function generarQR(Request $request){
+        //Recogemos los datos del producto...
+        $nombre = $request->nombre;
+        $precio = $request->precio;
+        $detalles = $request->detalles;
+        //Incluimos el formato de salida que tendrá el texto generado por el qr y lo adaptamos a formato de url
+        $textoQR = "Nombre del producto: ".$nombre." || Precio: ".$precio." || Detalles: ".$detalles;
+        $textoLink = urlencode($textoQR);
+        //Devolvemos la llamada a la api con los datos y las opciones de personalizacion
+        return response()->json(['url'=>'http://api.qrserver.com/v1/create-qr-code/?data='.$textoLink.'&size=200x200&bgcolor=E7E393']);
+    }
 }
