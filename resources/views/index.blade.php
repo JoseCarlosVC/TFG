@@ -73,8 +73,25 @@
                         <div class="position-relative p-4 pt-0">
                             <h4 class="mb-3">{{ $producto->nombreProducto }}</h4>
                             <p>{{ $producto->detalles }}</p>
-                            <a class="small fw-medium" href="">Añadir al pedido<i
-                                    class="fa fa-arrow-right ms-2"></i></a>
+                            <input type="number" class="boton border-0" id="cant_{{ $producto->id }}" name="cantidad"
+                                min="1" value="1" size="3" />
+                            <button id="add_{{ $producto->id }}"
+                                class="btnAddAction cart-action small fw-medium btn btn-primary rounded-pill py-1 px-1 mt-1 btnAddAction cart-action"
+                                onclick="accionCarro('add',{{ $producto->id }})" href="">Añadir
+                                al pedido<i class="fa fa-arrow-right ms-2"></i></button>
+                            <form class="generarQR" id="{{ $producto->id }}" action="" onsubmit="return false">
+                                <input class="boton qr" type="submit" value="Generar QR">
+                                <input id="nombre_{{ $producto->id }}" type="hidden"
+                                    value="{{ $producto->nombreProducto }}">
+                                <input id="precio_{{ $producto->id }}" type="hidden"
+                                    value="{{ $producto->precio }}€">
+                                <input id="detalles_{{ $producto->id }}" type="hidden"
+                                    value="{{ $producto->detalles }}">
+                                <!-- Aquí mostraremos cuando el usuario clickee el código QR -->
+                                <div>
+                                    <img id="codigoQR_{{ $producto->id }}" src="" alt="">
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

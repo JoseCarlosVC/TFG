@@ -8,7 +8,7 @@ use App\Models\Pedido;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Redirect;
 use Exception;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
@@ -26,7 +26,12 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        //
+        //Si el usuario no ha iniciado sesión, o bien no tiene nada en el pedido, no mostraremos esta página
+        if (Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 0 && Session::has('compra')){
+            return view('pedido');
+        }else{
+            return redirect('/');
+        }
     }
 
     /**
@@ -45,9 +50,29 @@ class PedidoController extends Controller
      * @param  \App\Http\Requests\StorePedidoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePedidoRequest $request)
+    public function store(Request $request)
     {
-        //
+        $idUsuario = Session::get('usuario')['id'];
+        try {
+            //Como necesitamos el id del pedido para almacenar cada línea del pedido en la tabla Pedidos, usaremos la función InsertGetID, la cual insertará los datos en la tabla usuario_pedidos y devolverá el id del registro creado
+            $idPedido = DB::table('usuario__pedidos')->insertGetId([
+                'idUsuario' => $idUsuario,
+                'created_at' => now()
+            ]);
+            $pedido = Session::get('compra');
+            foreach($pedido as $producto){
+                DB::table('pedidos')->insert([
+                    'idPedido' => $idPedido,
+                    'idProducto' => $producto['id'],
+                    'cantidad' => $producto['cantidad'],
+                    'precio' => $producto['precio']
+                ]);
+            }
+            //Borramos la sesión por si se quiere hacer otro pedido
+            Session::forget('compra');
+        } catch (Exception $err) {
+            dd($err);
+        }
     }
 
     /**
@@ -105,30 +130,42 @@ class PedidoController extends Controller
                 $producto = DB::table('productos')
                     ->where('id','=',$idProducto)
                     ->get();
-                $nombreProducto = $producto[0]['nombreProducto'];
-                $precio = $producto['0']['precio'] * $cantidad;
-                $productoArray = array($idProducto=>array('nombreProducto' => $nombreProducto, 'cantidad' => $cantidad, 'precio' => $precio));
-
+                $nombreProducto = $producto[0]->nombreProducto;
+                $precio = $producto['0']->precio * $cantidad;
+                $foto = $producto[0]->foto;
+                $productoArray = array($idProducto=>array('id' => $idProducto, 'nombreProducto' => $nombreProducto, 'cantidad' => $cantidad, 'precio' => $precio, 'foto' => $foto));
                 if(Session::has('compra')){
                     $carrito = Session::get('compra');
-                    if(in_array($idProducto, $carrito)){
-                        $carrito[$idProducto]['cantidad'] = $cantidad;
-                    Session::put('compra', $carrito);
+                    if(array_key_exists($idProducto, $carrito)){
+                        $carrito[$idProducto]['cantidad'] += $cantidad;
+                        $carrito[$idProducto]['precio'] = $carrito[$idProducto]['cantidad'] * $producto['0']->precio;
+                        Session::put('compra', $carrito);
                     }else{
-                        Session::put('compra',array_merge($carrito,$productoArray));
+                        Session::put('compra',$carrito+$productoArray);
                     }
                 }else{
                     Session::put('compra', $productoArray);
+                    //Enviamos un mensaje la primera vez que se añade un producto para que en la respuesta de AJAX se refresque la página. Así aparecerá la pestaña 'pedido' en la que podremos ver el pedido del usuario y tramitarlo
+                    return response()->json(['mensaje'=>'SessionCreated']);
                 }
             break;
 
             case "eliminar":
                 $carrito = Session::get('compra');
-                unset($carrito,$idProducto);
-                Session::put('compra', $carrito);
+                unset($carrito[$idProducto]);
+                if(empty($carrito)){
+                    //Si después de borrar el elemento, la sesión queda vacía, la destruimos
+                    Session::forget('compra');
+                    return response()->json(['mensaje'=>'SessionDestroyed']);
+                }else{
+                    Session::put('compra', $carrito);
+                    return response()->json(['mensaje'=>'SessionCreated']);
+                }
             break;
+
             case "vaciar":
                 Session::forget('compra');
+                return response()->json(['mensaje'=>'SessionDestroyed']);
             break;
         }
     }

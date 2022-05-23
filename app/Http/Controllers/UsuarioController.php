@@ -166,4 +166,10 @@ class UsuarioController extends Controller
             return redirect('/');
         }
     }
+
+    public function logout(){
+        //Borramos todos los datos de la sesión
+        Session::flush();
+        return redirect('/');
+    }
 }

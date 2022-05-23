@@ -75,9 +75,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                <a href="{{ url('/signin') }}" class="nav-item nav-link">Registro</a>
-                <a href="{{ url('/login') }}" class="nav-item nav-link">Iniciar sesión</a>
+                <a href="{{ url('/') }}" class="nav-item nav-link active">Inicio</a>
+                @if (!Session::has('usuario'))
+                    <a href="{{ url('/signin') }}" class="nav-item nav-link">Registro</a>
+                    <a href="{{ url('/login') }}" class="nav-item nav-link">Iniciar sesión</a>
+                @else
+                    <a href="{{ url('/logout') }}" class="nav-item nav-link">Cerrar sesión</a>
+                @endif
                 @if (Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 1)
                     <a href="{{ url('/registrarProducto') }}" class="nav-item nav-link">Registrar Producto</a>
                 @endif

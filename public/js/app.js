@@ -134,24 +134,48 @@ function accionCarro(accion, idProducto) {
         //Si se va a añadir un producto, necesitamos saber cuantas unidades de ese producto se quieren
         cantidad = $("#cant_" + idProducto).val();
     }
-    $(function () {
-        $.ajax({
-            url: '/carrito',
-            type: 'POST',
-            data: {
-                accion: accion,
-                idProducto: idProducto,
-                cantidad: cantidad,
-                _token: $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function (datos) {
-                console.log("done");
-            },
-            error: function () {
-                console.log("error");
-            }
+    if (accion == "confirmar") {
+        $(function () {
+            $.ajax({
+                url: '/hacerPedido',
+                type: 'POST',
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function () {
+                    alert('Pedido realizado!');
+                    window.location.href = "/";
+                },
+                error: function () {
+                    alert('Hubo un problema realizando el pedido');
+                    console.log("error");
+                }
+            });
         });
-    });
+    } else {
+        $(function () {
+            $.ajax({
+                url: '/carrito',
+                type: 'POST',
+                data: {
+                    accion: accion,
+                    idProducto: idProducto,
+                    cantidad: cantidad,
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (datos) {
+                    if (datos['mensaje'] == 'SessionCreated') {
+                        location.reload();
+                    } else if (datos['mensaje'] == 'SessionDestroyed') {
+                        window.location.href = "/";
+                    }
+                },
+                error: function () {
+                    console.log("error");
+                }
+            });
+        });
+    }
 
 }
 

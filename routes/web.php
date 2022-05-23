@@ -69,3 +69,7 @@ Route::get('/registrarProducto', [ProductoController::class,'registrarProducto']
 Route::post('/carrito', [PedidoController::class,'carrito']);
 
 Route::post('/generarQR', [ProductoController::class, 'generarQR']);
+
+Route::get('/logout', [UsuarioController::class, 'logout']);
+
+Route::post('/hacerPedido', [PedidoController::class, 'store']);
