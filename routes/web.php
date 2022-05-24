@@ -73,3 +73,5 @@ Route::post('/generarQR', [ProductoController::class, 'generarQR']);
 Route::get('/logout', [UsuarioController::class, 'logout']);
 
 Route::post('/hacerPedido', [PedidoController::class, 'store']);
+
+Route::get('/vistaPedidos', [PedidoController::class, 'show']);

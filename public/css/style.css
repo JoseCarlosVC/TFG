@@ -134,6 +134,11 @@
         padding: 10px 0;
     }
 
+    .d-lg-block {
+        width: 100%;
+    }
+
+
     .navbar .navbar-nav {
         border-top: 1px solid #EEEEEE;
     }
@@ -599,6 +604,10 @@ body {
     font-family: 'Comfortaa', cursive !important;
 }
 
+html {
+    scroll-behavior: smooth !important;
+}
+
 .text-primary {
     color: var(--primary) !important;
     font-family: 'Kalam', cursive !important;
@@ -607,7 +616,7 @@ body {
 .btn-primary {
     background-color: var(--primary) !important;
     border-color: var(--primary) !important;
-    color: var(--secondary) !important;
+    color: var(--dark) !important;
     font-family: 'Comfortaa', cursive !important;
 }
 
@@ -650,7 +659,7 @@ p {
 }
 
 .fw-medium {
-    color: var(--icons) !important;
+    color: var(--dark) !important;
     font-family: 'Comfortaa', cursive !important;
 }
 
@@ -684,7 +693,8 @@ p {
 }
 
 .fas,
-.fab {
+.fab,
+.fa {
     color: var(--icons) !important;
 }
 
@@ -717,12 +727,29 @@ p {
     font-weight: 400;
     line-height: 1.5;
     border-radius: 8px;
+    margin-top: 1vh;
 }
 
 .btnAdded {
     display: none;
 }
 
+.d-flex,
+.service-item {
+    background-color: var(--secondary) !important;
+}
+
+.container {
+    margin-top: 1vh !important;
+}
+
+.img-rest {
+    width: 100% !important;
+}
+
+.py-5 {
+    padding-bottom: 0 !important;
+}
 
 /*
     font-family: 'Kalam', cursive !important;

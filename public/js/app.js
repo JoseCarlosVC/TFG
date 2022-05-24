@@ -203,3 +203,9 @@ $(function () {
         });
     });
 });
+
+//La página login en desktop es demasiado "corta" por lo que el footer no se queda pegado al final, con esta función se añade una clase que obliga al footer a quedarse abajo
+if ((window.location.pathname == "/login") && (window.matchMedia("(min-width: 700px)").matches)) {
+    let footer = document.getElementsByTagName("footer")[0];
+    footer.classList.add("fixed-bottom");
+}

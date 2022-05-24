@@ -42,6 +42,7 @@ class PedidoController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -81,9 +82,23 @@ class PedidoController extends Controller
      * @param  \App\Models\Pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function show(Pedido $pedido)
+    public function show()
     {
-        //
+        //SELECT usuario__pedidos.id,productos.nombreProducto,productos.foto,pedidos.precio,pedidos.cantidad FROM productos INNER JOIN pedidos ON productos.id = pedidos.idProducto INNER JOIN usuario__pedidos ON pedidos.idPedido = usuario__pedidos.id WHERE usuario__pedidos.idUsuario=1 GROUP BY usuario__pedidos.id;
+        if(Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 0){
+            $idUsuario = Session::get('usuario')['id'];
+            $pedidos = DB::table('productos')
+                ->join('pedidos', 'productos.id', '=', 'pedidos.idProducto')
+                ->join('usuario__pedidos', 'pedidos.idPedido', '=', 'usuario__pedidos.id')
+                ->where('usuario__pedidos.idUsuario', '=', $idUsuario)
+                ->select('usuario__pedidos.id', 'productos.nombreProducto', 'productos.foto', 'pedidos.precio', 'pedidos.cantidad', 'usuario__pedidos.created_at')
+                ->orderBy('usuario__pedidos.id', 'desc')
+                ->get();
+                //->groupBy('usuario__pedidos.id');
+            return view('vistaPedidos',['pedidos'=>$pedidos]);
+        }else{
+            return redirect('/');
+        }
     }
 
     /**

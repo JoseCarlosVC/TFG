@@ -45,7 +45,7 @@
 
     <!-- Topbar Start -->
     <div class="container-fluid bg-dark p-0">
-        <div class="row gx-0 d-none d-lg-flex">
+        <div class="row gx-0 d-lg-flex">
             <div class="col-lg-7 px-5 text-start">
             </div>
             <div class="col-lg-5 px-5 text-end">
@@ -81,27 +81,17 @@
                     <a href="{{ url('/login') }}" class="nav-item nav-link">Iniciar sesión</a>
                 @else
                     <a href="{{ url('/logout') }}" class="nav-item nav-link">Cerrar sesión</a>
+                    <a href="{{ url('/vistaPedidos') }}" class="nav-item nav-link">Mis pedidos</a>
                 @endif
                 @if (Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 1)
                     <a href="{{ url('/registrarProducto') }}" class="nav-item nav-link">Registrar Producto</a>
                 @endif
-                @if (Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 0 && Session::has('compra'))
-                    <a href="{{ url('/pedido') }}" class="nav-item nav-link">Ver Pedido</a>
-                @endif
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu bg-light m-0">
-                        <a href="feature.html" class="dropdown-item">Feature</a>
-                        <a href="quote.html" class="dropdown-item">Free Quote</a>
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a href="#contacto" class="nav-item nav-link">Contactar</a>
             </div>
-            <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Get A Quote<i
-                    class="fa fa-arrow-right ms-3"></i></a>
+            @if (Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 0 && Session::has('compra'))
+                <a href="{{ url('/pedido') }}" class="btn btn-primary rounded-0 py-4 px-lg-5 d-lg-block">Ver
+                    Pedido<i class="fa fa-arrow-right ms-3"></i></a>
+            @endif
         </div>
     </nav>
     <!-- Navbar End -->

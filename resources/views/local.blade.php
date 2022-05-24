@@ -3,7 +3,7 @@
 <div class="container-fluid page-header py-5 mb-5">
     <div class="container py-5">
         <h1 class="display-3 text-white mb-3 animated slideInDown">{{ $local->nombreUsuario }}</h1>
-        <img src="{{ asset('storage') . '/' . $local->foto }}" alt="Foto restaurante">
+        <img class="img-rest" src="{{ asset('storage') . '/' . $local->foto }}" alt="Foto restaurante">
     </div>
 </div>
 <!-- Fin cabecera -->
@@ -27,12 +27,8 @@
                                 class="btnAddAction cart-action small fw-medium btn btn-primary rounded-pill py-1 px-1 mt-1 btnAddAction cart-action"
                                 onclick="accionCarro('add',{{ $producto->id }})" href="">Añadir
                                 al pedido<i class="fa fa-arrow-right ms-2"></i></button>
-                            <button id="added_{{ $producto->id }}"
-                                class="btnAdded small fw-medium btn btn-primary rounded-pill py-1 px-1 mt-1 btnAddAction cart-action"
-                                onclick="accionCarro('add',{{ $producto->id }})" href="">Añadido
-                                al pedido<i class="fa fa-arrow-right ms-2"></i></button>
                             <form class="generarQR" id="{{ $producto->id }}" action="" onsubmit="return false">
-                                <input class="boton qr" type="submit" value="Generar QR">
+                                <input class="form-control boton qr btn btn-primary" type="submit" value="Generar QR">
                                 <input id="nombre_{{ $producto->id }}" type="hidden"
                                     value="{{ $producto->nombreProducto }}">
                                 <input id="precio_{{ $producto->id }}" type="hidden"
