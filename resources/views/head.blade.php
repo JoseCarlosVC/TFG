@@ -78,6 +78,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="{{ url('/') }}" class="nav-item nav-link active">Inicio</a>
+                <a href="{{ url('/vistaLocales') }}" class="nav-item nav-link">Ver locales</a>
                 @if (!Session::has('usuario'))
                     <a href="{{ url('/signin') }}" class="nav-item nav-link">Registro</a>
                     <a href="{{ url('/login') }}" class="nav-item nav-link">Iniciar sesión</a>
@@ -87,6 +88,9 @@
                 @endif
                 @if (Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 1)
                     <a href="{{ url('/registrarProducto') }}" class="nav-item nav-link">Registrar Producto</a>
+                @endif
+                @if (Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 2)
+                    <a href="{{ url('/registrarLocal') }}" class="nav-item nav-link">Registrar Local</a>
                 @endif
                 <a href="#contacto" class="nav-item nav-link">Contactar</a>
             </div>

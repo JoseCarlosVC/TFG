@@ -75,3 +75,7 @@ Route::get('/logout', [UsuarioController::class, 'logout']);
 Route::post('/hacerPedido', [PedidoController::class, 'store']);
 
 Route::get('/vistaPedidos', [PedidoController::class, 'show']);
+
+Route::get('/vistaLocales', [UsuarioController::class, 'show']);
+
+Route::get('/registrarLocal', [UsuarioController::class, 'registrarLocal']);

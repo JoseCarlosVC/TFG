@@ -693,8 +693,8 @@ p {
 
 .pb-5,
 .my-5 {
-    margin: 0 1vw !important;
-    width: 98% !important;
+    margin: 0 auto !important;
+    width: 95% !important;
 }
 
 .img-big {
@@ -823,6 +823,14 @@ p {
     .navbar .navbar-nav {
         border-top: 1px solid #EEEEEE;
     }
+
+    .btn-primary {
+        margin-bottom: 1vh !important;
+    }
+}
+
+.my-5 {
+    margin-bottom: 5vh !important;
 }
 
 /*

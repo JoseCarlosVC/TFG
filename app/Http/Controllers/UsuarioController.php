@@ -23,6 +23,8 @@ class UsuarioController extends Controller
         //En el index queremos mostrar los locales, vamos a seleccionar todos los usuarios con rol 1
         $locales = DB::table('usuarios')
             ->where('rolUsuario', '=', 1)
+            ->inRandomOrder()
+            ->limit(1)
             ->get();
         //Seleccionamos también 5 productos aleatoriamente
         $productos = DB::table('productos')
@@ -81,6 +83,10 @@ class UsuarioController extends Controller
     public function show(Usuario $usuario)
     {
         //
+        $locales = DB::table('usuarios')
+        ->where('rolUsuario', '=', 1)
+        ->get();
+        return view('vistaLocales',['locales'=>$locales]);
     }
 
     /**
@@ -171,5 +177,14 @@ class UsuarioController extends Controller
         //Borramos todos los datos de la sesión
         Session::flush();
         return redirect('/');
+    }
+
+    public function registrarLocal(){
+        if(Session::get('usuario')['rolUsuario'] == 2){
+            return view('registrarLocal');
+        }else{
+            //Si no se accede a la página con un rol de trabajador, no se permitirá acceder al formulario ni crear locales
+            return redirect('/');
+        }
     }
 }
