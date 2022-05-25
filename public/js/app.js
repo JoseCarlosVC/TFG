@@ -209,3 +209,9 @@ if ((window.location.pathname == "/login") && (window.matchMedia("(min-width: 70
     let footer = document.getElementsByTagName("footer")[0];
     footer.classList.add("fixed-bottom");
 }
+
+/* Selector para el menú hamburguesa */
+
+$('.icono-hamb').on('click', function () {
+    $(this).toggleClass("abrir");
+});

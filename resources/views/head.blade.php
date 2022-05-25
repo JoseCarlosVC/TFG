@@ -70,9 +70,11 @@
             <img src="{{ asset('favicon.ico') }}" alt="Logo" id="logo">
             <!--<h2 class="m-0 text-primary">PUF</h2>-->
         </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="icono-hamb navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="{{ url('/') }}" class="nav-item nav-link active">Inicio</a>

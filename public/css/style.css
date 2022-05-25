@@ -128,22 +128,6 @@
     margin-left: 8px;
 }
 
-@media (max-width: 991.98px) {
-    .navbar .navbar-nav .nav-link {
-        margin-right: 0;
-        padding: 10px 0;
-    }
-
-    .d-lg-block {
-        width: 100%;
-    }
-
-
-    .navbar .navbar-nav {
-        border-top: 1px solid #EEEEEE;
-    }
-}
-
 @media (min-width: 992px) {
     .navbar .nav-item .dropdown-menu {
         display: block;
@@ -674,7 +658,7 @@ p {
 }
 
 #logo {
-    width: 50%;
+    width: 65%;
 }
 
 .card-body {
@@ -749,6 +733,96 @@ p {
 
 .py-5 {
     padding-bottom: 0 !important;
+}
+
+.navbar-light .navbar-toggler {
+    color: rgba(0, 0, 0, 0) !important;
+    border-color: rgba(0, 0, 0, 0) !important;
+}
+
+.navbar-brand {
+    /**/
+    flex-basis: 15% !important;
+}
+
+/*Sustitución y animación del menú hamburguesa */
+
+.icono-hamb {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    margin: 0px;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+.icono-hamb span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+    background-color: var(--icons) !important;
+    transform-origin: left center;
+}
+
+.icono-hamb span:nth-child(1) {
+    top: 0px;
+}
+
+.icono-hamb span:nth-child(2) {
+    top: 10px;
+}
+
+.icono-hamb span:nth-child(3) {
+    top: 20px;
+}
+
+.abrir span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 0px;
+    left: 8px;
+}
+
+.abrir span:nth-child(2) {
+    width: 0%;
+    opacity: 0;
+}
+
+.abrir span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 21px;
+    left: 8px;
+}
+
+@media (max-width: 991.98px) {
+    .navbar .navbar-nav .nav-link {
+        margin-right: 0;
+        padding: 10px 0;
+    }
+
+    #logo {
+        width: 100%;
+    }
+
+    .navbar-brand {
+        flex-basis: 35% !important;
+    }
+
+
+    .d-lg-block {
+        width: 100%;
+    }
+
+
+    .navbar .navbar-nav {
+        border-top: 1px solid #EEEEEE;
+    }
 }
 
 /*
