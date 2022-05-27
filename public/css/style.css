@@ -858,9 +858,13 @@ p {
     border: none !important;
 }
 
+/*El contenedor de paginación es algo distinto en mobile, estas reglas hacen los cambios necesarios para maneter la coherencia*/
+.pagination {
+    margin: auto !important;
+}
+
 .flex-fill {
     background-color: var(--light) !important;
-
 }
 
 /*
