@@ -1,4 +1,9 @@
 @include('head')
+@if (session('mensaje'))
+    <div class="alert alert-danger">
+        {{ session('mensaje') }}
+    </div>
+@endif
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -19,7 +24,7 @@
 
                                 @error('correo')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ $mensaje }}</strong>
                                     </span>
                                 @enderror
                             </div>
@@ -36,7 +41,7 @@
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ $mensaje }}</strong>
                                     </span>
                                 @enderror
                             </div>

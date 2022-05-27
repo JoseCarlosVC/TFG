@@ -14,33 +14,6 @@
                     <a class="btn btn-square" href="https://es.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6">
-                <h5 class="text-white mb-4">Envía tus sugerencias</h5>
-                <div class="row g-1">
-                    <form id="contacto">
-                        <div class="row g-3">
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control border-0" placeholder="Nombre">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control border-0" placeholder="Apellidos">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="email" class="form-control border-0" placeholder="Email">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control border-0" placeholder="Teléfono móvil">
-                            </div>
-                            <div class="col-12">
-                                <textarea class="form-control border-0" placeholder="Comentario"></textarea>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary rounded-pill py-1 px-5" type="submit">Enviar</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
 </footer>

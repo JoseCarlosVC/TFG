@@ -35,12 +35,12 @@
 
 <body>
     <!-- Spinner Start -->
-    <!--<div id="spinner"
+    <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" role="status">
             <span class="sr-only">Loading...</span>
         </div>
-    </div>-->
+    </div>
     <!-- Spinner End -->
 
     <!-- Topbar Start -->
@@ -84,7 +84,11 @@
                     <a href="{{ url('/login') }}" class="nav-item nav-link">Iniciar sesión</a>
                 @else
                     <a href="{{ url('/logout') }}" class="nav-item nav-link">Cerrar sesión</a>
+                @endif
+                @if (Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 0)
                     <a href="{{ url('/vistaPedidos') }}" class="nav-item nav-link">Mis pedidos</a>
+                @elseif (Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 2)
+                    <a href="{{ url('/vistaPedidos') }}" class="nav-item nav-link">Ver pedidos</a>
                 @endif
                 @if (Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 1)
                     <a href="{{ url('/registrarProducto') }}" class="nav-item nav-link">Registrar Producto</a>
@@ -92,7 +96,6 @@
                 @if (Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 2)
                     <a href="{{ url('/registrarLocal') }}" class="nav-item nav-link">Registrar Local</a>
                 @endif
-                <a href="#contacto" class="nav-item nav-link">Contactar</a>
             </div>
             @if (Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 0 && Session::has('compra'))
                 <a href="{{ url('/pedido') }}" class="btn btn-primary rounded-0 py-4 px-lg-5 d-lg-block">Ver

@@ -1,4 +1,9 @@
 @include('head')
+@if (session('mensaje'))
+    <div class="alert alert-success">
+        {{ session('mensaje') }}
+    </div>
+@endif
 <!-- Comienzo cabecera -->
 <div class="container-fluid page-header py-5 mb-5">
     <div class="container py-5">

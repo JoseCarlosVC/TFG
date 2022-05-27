@@ -867,6 +867,10 @@ p {
     background-color: var(--light) !important;
 }
 
+.pt-5 {
+    padding-top: 0 !important;
+}
+
 /*
     font-family: 'Kalam', cursive !important;
     font-family: 'Comfortaa', cursive !important;

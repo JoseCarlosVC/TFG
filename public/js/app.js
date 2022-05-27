@@ -204,8 +204,8 @@ $(function () {
     });
 });
 
-//La página login en desktop es demasiado "corta" por lo que el footer no se queda pegado al final, con esta función se añade una clase que obliga al footer a quedarse abajo
-if ((window.location.pathname == "/login") && (window.matchMedia("(min-width: 700px)").matches)) {
+//Las páginas login y registrarProducto en desktop son demasiado "corta" por lo que el footer no se queda pegado al final, con esta función se añade una clase que obliga al footer a quedarse abajo
+if (((window.location.pathname == "/login") || (window.location.pathname == "/registrarProducto")) && (window.matchMedia("(min-width: 700px)").matches)) {
     let footer = document.getElementsByTagName("footer")[0];
     footer.classList.add("fixed-bottom");
 }
@@ -215,3 +215,13 @@ if ((window.location.pathname == "/login") && (window.matchMedia("(min-width: 70
 $('.icono-hamb').on('click', function () {
     $(this).toggleClass("abrir");
 });
+
+/*Hacemos desaparecer las alertas tras unos 5 segundos*/
+try {
+    let alerta = document.getElementsByClassName("alert")[0];
+    setTimeout(() => {
+        alerta.parentNode.removeChild(alerta);
+    }, 5000);
+} catch (error) {
+
+}

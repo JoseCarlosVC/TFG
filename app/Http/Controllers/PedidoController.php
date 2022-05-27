@@ -96,6 +96,17 @@ class PedidoController extends Controller
                 ->get();
                 //->groupBy('usuario__pedidos.id');
             return view('vistaPedidos',['pedidos'=>$pedidos]);
+        }else if(Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 2){
+            //Para el caso de usuarios con el rol 2 (trabajador) mostraremos todos los pedidos de los usuarios
+            $pedidos = DB::table('productos')
+                ->join('pedidos', 'productos.id', '=', 'pedidos.idProducto')
+                ->join('usuario__pedidos', 'pedidos.idPedido', '=', 'usuario__pedidos.id')
+                ->join('usuarios', 'usuario__pedidos.idUsuario', '=','usuarios.id'  )
+                ->where('usuarios.rolUsuario', '=', 0)
+                ->select('usuario__pedidos.id','usuarios.nombreUsuario','usuarios.telefono','usuarios.direccion', 'productos.nombreProducto', 'productos.foto', 'pedidos.precio', 'pedidos.cantidad', 'usuario__pedidos.created_at')
+                ->orderBy('usuario__pedidos.id', 'desc')
+                ->get();
+            return view('vistaPedidos',['pedidos'=>$pedidos]);
         }else{
             return redirect('/');
         }

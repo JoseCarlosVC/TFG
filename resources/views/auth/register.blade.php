@@ -20,7 +20,7 @@
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>{{ $mensaje }}</strong>
                                         </span>
                                     @enderror
                                 </div>
@@ -36,7 +36,7 @@
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>{{ $mensaje }}</strong>
                                         </span>
                                     @enderror
                                 </div>
@@ -53,7 +53,7 @@
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }} s</strong>
+                                            <strong>{{ $mensaje }} s</strong>
                                         </span>
                                     @enderror
                                 </div>
