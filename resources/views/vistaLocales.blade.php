@@ -21,4 +21,5 @@
         </div>
     </div>
 @endforeach
+{{ $locales->links() }}
 @include('footer')

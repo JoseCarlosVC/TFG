@@ -833,6 +833,36 @@ p {
     margin-bottom: 5vh !important;
 }
 
+.text-muted {
+    /*Para ocultar el texto de la paginacion*/
+    display: none !important;
+}
+
+.d-sm-flex {
+    /*El color del contenedor de la paginación tiene que ser del mismo color que el fondo*/
+    background-color: var(--light) !important;
+}
+
+.d-sm-flex>:nth-child(2) {
+    /*El contenedor que incluye los enlaces de paginación debería aparecer en el centro de la página, usamos las propiedades de flex al igual que en el resto de la pagina*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto !important;
+}
+
+.page-link {
+    background-color: var(--secondary) !important;
+    color: var(--icons) !important;
+    font-family: 'Kalam', cursive !important;
+    border: none !important;
+}
+
+.flex-fill {
+    background-color: var(--light) !important;
+
+}
+
 /*
     font-family: 'Kalam', cursive !important;
     font-family: 'Comfortaa', cursive !important;

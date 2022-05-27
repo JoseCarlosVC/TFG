@@ -85,7 +85,7 @@ class UsuarioController extends Controller
         //
         $locales = DB::table('usuarios')
         ->where('rolUsuario', '=', 1)
-        ->get();
+        ->paginate(3);
         return view('vistaLocales',['locales'=>$locales]);
     }
 
