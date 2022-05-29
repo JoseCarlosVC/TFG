@@ -83,6 +83,7 @@
                     <a href="{{ url('/signin') }}" class="nav-item nav-link">Registro</a>
                     <a href="{{ url('/login') }}" class="nav-item nav-link">Iniciar sesión</a>
                 @else
+                    <a href="{{ url('/perfil') }}" class="nav-item nav-link">Mi perfil</a>
                     <a href="{{ url('/logout') }}" class="nav-item nav-link">Cerrar sesión</a>
                 @endif
                 @if (Session::has('usuario') && Session::get('usuario')['rolUsuario'] == 0)

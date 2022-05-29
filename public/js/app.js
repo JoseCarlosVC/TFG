@@ -225,3 +225,15 @@ try {
 } catch (error) {
 
 }
+
+try {
+    let eliminar = document.getElementById("eliminar");
+    eliminar.addEventListener("click", function (ev) {
+        //Si el usuario acepta, no es necesario hacer nada...
+        if (confirm("¿Seguro que quieres eliminar tu cuenta?")) {} else {
+            ev.preventDefault();
+        }
+    });
+} catch (error) {
+
+}

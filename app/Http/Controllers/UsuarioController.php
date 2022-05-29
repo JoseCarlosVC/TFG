@@ -118,11 +118,18 @@ class UsuarioController extends Controller
      * @param  \App\Models\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
         //
-        Usuario::destroy($id);
-        return redirect('usuario');
+        if(Session::has('usuario')){
+            $id = Session::get('usuario')['id'];
+            Usuario::destroy($id);
+            Session::flush();
+            return redirect('/')->with('mensaje','Cuenta eliminada correctamente');
+        }else{
+            return redirect('/');
+        }
+
     }
 
     public function login(Request $request){
@@ -184,6 +191,15 @@ class UsuarioController extends Controller
             return view('registrarLocal');
         }else{
             //Si no se accede a la página con un rol de trabajador, no se permitirá acceder al formulario ni crear locales
+            return redirect('/');
+        }
+    }
+
+    public function perfil(){
+        if(Session::has('usuario')){
+            return view('perfil');
+        }else{
+            //Si no hay un usuario registrado, devolvemos al index
             return redirect('/');
         }
     }

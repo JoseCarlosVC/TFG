@@ -3,9 +3,9 @@
 //dd(session()->all());
 ?>
 @if (session('mensaje'))
-<div class="alert alert-success">
-    {{ session('mensaje') }}
-</div>
+    <div class="alert alert-success">
+        {{ session('mensaje') }}
+    </div>
 @endif
 <!-- Comienzo restaurantes -->
 <h1 class="text-center display-2 text-black animated slideInDown">Nuestros restaurantes</h1>

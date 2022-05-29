@@ -79,3 +79,7 @@ Route::get('/vistaPedidos', [PedidoController::class, 'show']);
 Route::get('/vistaLocales', [UsuarioController::class, 'show']);
 
 Route::get('/registrarLocal', [UsuarioController::class, 'registrarLocal']);
+
+Route::get('/perfil', [UsuarioController::class, 'perfil']);
+
+Route::get('/eliminar', [UsuarioController::class, 'destroy']);

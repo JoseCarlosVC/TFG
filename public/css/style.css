@@ -871,6 +871,15 @@ p {
     padding-top: 0 !important;
 }
 
+.img-medium {
+    width: 50% !important;
+}
+
+ul>li {
+    color: var(--dark) !important;
+    font-family: 'Comfortaa', cursive !important;
+}
+
 /*
     font-family: 'Kalam', cursive !important;
     font-family: 'Comfortaa', cursive !important;
